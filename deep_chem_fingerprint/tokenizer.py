@@ -24,7 +24,7 @@ class SMILESTokenizer:
                 random_string = self.randomize_mol(mol)
                 smiles_strings.append(random_string)
             assert len(smiles_strings) > 0
-        except AssertionError as e:
+        except Exception as e:
             pass
         return smiles_strings
 
@@ -33,8 +33,10 @@ class SMILESTokenizer:
         assert type(random_string) == str
         return random_string
 
-    def tokenize(self, smiles_string: str, n_samples: int = 32) -> np.ndarray:
+    def tokenize(self, smiles_string: str, n_samples: int = 32) -> Union[None, np.ndarray]:
         random_strings = self.randomize(smiles_string, n_samples)
+        if len(random_strings) == 0:
+            return None
         return self.tokenizer(
             random_strings,
             return_tensors="pt",
