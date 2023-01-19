@@ -81,6 +81,7 @@ class Encoder(nn.Module):
         self.pad_token = pad_token
         self.embed = nn.Embedding(vocab_size, dims, padding_idx=pad_token)
         self.pos = PositionEmbedding(dims, max_length)
+        self.norm = nn.LayerNorm(dims)
 
         modules = [ResBlock(dims, heads) for i in range(layers)]
         self.encoder = nn.ModuleList(modules)
@@ -97,6 +98,6 @@ class Encoder(nn.Module):
         for resblock in self.encoder:
             h = resblock(h, pad_mask=pad_mask)
 
-        return h[:,0]
+        return self.norm(h[:,0])
 
 
