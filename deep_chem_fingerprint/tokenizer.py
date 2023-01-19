@@ -37,7 +37,7 @@ class SMILESTokenizer:
         random_strings = self.randomize(smiles_string, n_samples)
         return self.tokenizer(
             random_strings,
-            return_tensors="np",
+            return_tensors="pt",
             padding="max_length",
             max_length=self.max_length,
             truncation=True,
