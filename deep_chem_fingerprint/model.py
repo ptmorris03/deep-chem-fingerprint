@@ -3,6 +3,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+from pathlib import Path
+
 
 def sin_pos_emb_weight(max_length, dims):
     def cal_angle(position, hid_idx):
@@ -101,3 +103,9 @@ class Encoder(nn.Module):
         return self.norm(h[:,0])
 
 
+def load_pretrained_model(checkpoint_path: Path) -> Encoder:
+    model = Encoder()
+    model.eval()
+    state_dict = torch.load(checkpoint_path)
+    model.load_state_dict(state_dict)
+    return model
