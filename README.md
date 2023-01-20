@@ -1,5 +1,7 @@
 # deep-chem-fingerprint
-Deep chemical fingerprints (256d embeddings) from a Transformer-based neural network trained to canonicalize 1B Zinc15 SMILES strings
+Deep chemical fingerprints (256d embeddings) from a Transformer-based neural network trained to canonicalize 1B Zinc15 SMILES strings.
+
+[Colab Notebook](https://colab.research.google.com/drive/15cVZpu7M7-qiH6iSsDcjlCyaB8glvcM3?usp=sharing)
 
 # Usage
 ```python3
