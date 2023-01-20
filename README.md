@@ -6,7 +6,7 @@ Deep chemical fingerprints (256d embeddings) from a Transformer-based neural net
 from deep_chem_fingerprint import Fingerprinter
 
 
-fp= Fingerprinter(
+fp = Fingerprinter(
     weights_path = "model/encoder-weights.ckpt",
     tokenizer_path = "model/smiles-tokenizer.json",
     n_samples = 32
