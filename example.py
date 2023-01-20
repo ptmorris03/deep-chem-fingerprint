@@ -1,8 +1,3 @@
-# deep-chem-fingerprint
-Deep chemical fingerprints (256d embeddings) from a Transformer-based neural network trained to canonicalize 1B Zinc15 SMILES strings
-
-# Usage
-```
 from deep_chem_fingerprint import Fingerprinter
 
 
@@ -16,4 +11,3 @@ smiles_string = "CCCCCC"
 fingerprint = fp(smiles_string)
 
 print(fingerprint.shape)
-```
